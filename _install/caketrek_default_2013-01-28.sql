@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: localhost (MySQL 5.1.44)
+# Host: localhost (MySQL 5.5.25)
 # Database: caketrek_default
-# Generation Time: 2013-01-28 11:41:45 +0000
+# Generation Time: 2013-01-28 11:55:21 +0000
 # ************************************************************
 
 
@@ -42,9 +42,9 @@ LOCK TABLES `badges` WRITE;
 INSERT INTO `badges` (`id`, `name`, `label`, `description`, `created`, `modified`)
 VALUES
 	(1,'rookie','Rookie','Premiers pas',NULL,NULL),
-	(2,'first_blood','First Blood','Première Journey qui a été annulée',NULL,NULL),
-	(3,'natural_born_leader','Natural Born Leader','A organisé plus de 10 journeys',NULL,NULL),
-	(4,'walker','Walker','A participé à au moins 5 journeys',NULL,NULL);
+	(2,'first_blood','First Blood','Premi',NULL,NULL),
+	(3,'natural_born_leader','Natural Born Leader','A organis',NULL,NULL),
+	(4,'walker','Walker','A particip',NULL,NULL);
 
 /*!40000 ALTER TABLE `badges` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -222,7 +222,7 @@ LOCK TABLES `tourists` WRITE;
 INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`)
 VALUES
 	(1,'Gaspard','Beernaert','Il aime les grandes plaines de neige, il veut un yak',5,1,NULL,'2013-01-27 18:57:50'),
-	(2,'Jo','Bo','Depuis tout petit, il aimait la glace à la chantilly',2,2,NULL,'2013-01-27 18:57:55');
+	(2,'Jo','Bo','Depuis tout petit, il aimait la glace ',2,2,NULL,'2013-01-27 18:57:55');
 
 /*!40000 ALTER TABLE `tourists` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -313,12 +313,22 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `zones`;
 
 CREATE TABLE `zones` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) unsigned DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `journey_id` int(11) DEFAULT NULL,
-  `track_id` int(11) DEFAULT NULL
+  `track_id` int(11) DEFAULT NULL,
+  `country` varchar(40) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `zones` WRITE;
+/*!40000 ALTER TABLE `zones` DISABLE KEYS */;
+
+INSERT INTO `zones` (`id`, `name`, `journey_id`, `track_id`, `country`)
+VALUES
+	(NULL,'Nord-Ouest',NULL,NULL,'France');
+
+/*!40000 ALTER TABLE `zones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
