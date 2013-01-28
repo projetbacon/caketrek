@@ -1,0 +1,18 @@
+<div class="zones form">
+<?php echo $this->Form->create('Zone'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Zone'); ?></legend>
+	<?php
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Html->link(__('List Zones'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
