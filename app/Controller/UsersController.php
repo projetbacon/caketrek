@@ -10,15 +10,63 @@ class UsersController extends AppController {
 
 	public $theme = "Bootstrap";
 
+	/*public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add');
+    }*/
+
+    public function index() {
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
+
+        if ($this->Auth->user('id')){
+			echo $this->Auth->user('id');
+		}
+		else
+		{
+			echo 'ca me gave';
+		}
+    }
+ 
+      public function login() {
+          if ($this->request->is('post')) {
+              if ($this->Auth->login($this->request->data)) {
+                //$this->redirect(array('controller' => 'users', 'action' => 'index'));
+                debug($this->request->data);
+                $this->Session->setFlash(__('great'), 'success');
+              } else {
+                  $this->Session->setFlash(__('Invalid username or password, try again'), 'error');
+              }
+          }
+      }
+
+
 /**
  * index method
  *
  * @return void
  */
-	public function index() {
+	/*public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
+
+
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add');
+    }
+
+     public function login() {
+          if ($this->request->is('post')) {
+              if ($this->Auth->login($this->request->data)) {
+                  //$this->redirect($this->Auth->redirect());
+              	$this->Session->setFlash(__('connected'), 'success');
+              } else {
+                  $this->Session->setFlash(__('Invalid username or password, try again'), 'error');
+              }
+          }
+      }*/
 
 /**
  * view method
@@ -197,4 +245,6 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'),'error');
 		$this->redirect(array('action' => 'index'));
 	}
+
+	
 }

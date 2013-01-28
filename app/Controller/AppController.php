@@ -33,4 +33,12 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $theme = "default";
+	public $components = array(
+          'Session',
+          'Auth'
+      );
+
+	function isAuthorize(){
+		return true;
+	}
 }
