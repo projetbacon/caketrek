@@ -6,6 +6,7 @@
 		echo $this->Form->input('tourist_id');
 		echo $this->Form->input('guide_id');
 		echo $this->Form->input('track_id');
+		echo $this->Html->link(__('New Track'), array('controller' => 'tracks', 'action' => 'add'));
 		echo $this->Form->input('zone_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('about');
