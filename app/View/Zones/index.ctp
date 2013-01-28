@@ -3,12 +3,22 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('journey_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('track_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 	foreach ($zones as $zone): ?>
 	<tr>
 		<td><?php echo h($zone['Zone']['id']); ?>&nbsp;</td>
+		<td><?php echo h($zone['Zone']['name']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($zone['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $zone['Journey']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($zone['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $zone['Zone']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $zone['Zone']['id'])); ?>
@@ -38,5 +48,7 @@
 		<li><?php echo $this->Html->link(__('New Zone'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tracks'), array('controller' => 'tracks', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Track'), array('controller' => 'tracks', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

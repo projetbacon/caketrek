@@ -14,7 +14,13 @@ class ZoneTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.zone',
-		'app.journey'
+		'app.journey',
+		'app.tourist',
+		'app.user',
+		'app.badge',
+		'app.badges_user',
+		'app.guide',
+		'app.track'
 	);
 
 /**
