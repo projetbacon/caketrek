@@ -1,0 +1,44 @@
+2013-01-28 09:24:10 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Datasource/DboSource.php(261): Mysql->connect()
+#1 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(3169): ConnectionManager::getDataSource('default')
+#3 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(1096): Model->setDataSource('default')
+#4 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(3191): Model->setSource('tourists')
+#5 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(2642): Model->getDataSource()
+#6 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Component/PaginatorComponent.php(173): Model->find('all', Array)
+#7 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Controller.php(1081): PaginatorComponent->paginate(NULL, Array, Array)
+#8 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/Controller/TouristsController.php(17): Controller->paginate()
+#9 [internal function]: TouristsController->index()
+#10 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TouristsController), Array)
+#11 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#12 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(TouristsController), Object(CakeRequest), Object(CakeResponse))
+#13 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-01-28 09:27:50 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Datasource/DboSource.php(261): Mysql->connect()
+#1 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(3169): ConnectionManager::getDataSource('default')
+#3 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(1096): Model->setDataSource('default')
+#4 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(3191): Model->setSource('tourists')
+#5 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Model/Model.php(2642): Model->getDataSource()
+#6 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Component/PaginatorComponent.php(173): Model->find('all', Array)
+#7 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Controller.php(1081): PaginatorComponent->paginate(NULL, Array, Array)
+#8 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/Controller/TouristsController.php(17): Controller->paginate()
+#9 [internal function]: TouristsController->index()
+#10 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TouristsController), Array)
+#11 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#12 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(TouristsController), Object(CakeRequest), Object(CakeResponse))
+#13 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-01-28 11:01:58 Error: [MissingControllerException] Controller class ZonesController could not be found.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-28 11:02:02 Error: [MissingControllerException] Controller class ZoneController could not be found.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-28 11:02:11 Error: [MissingControllerException] Controller class ZonesController could not be found.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-28 11:03:46 Error: [MissingControllerException] Controller class TrackController could not be found.
+#0 /Users/clementlebau/Sites/IIM/A3 - PHP/projetbacon/caketrek/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
