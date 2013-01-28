@@ -6,6 +6,26 @@
 			<?php echo h($track['Track']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['name']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Size'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['size']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Level'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['level']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Journey Id'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['journey_id']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

@@ -3,6 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Add Track'); ?></legend>
 	<?php
+		echo $this->Form->input('name');
+		echo $this->Form->input('size');
+		echo $this->Form->input('level');
+		echo $this->Form->input('journey_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -14,7 +14,13 @@ class TracksControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.track',
-		'app.journey'
+		'app.journey',
+		'app.tourist',
+		'app.user',
+		'app.badge',
+		'app.badges_user',
+		'app.guide',
+		'app.zone'
 	);
 
 /**
