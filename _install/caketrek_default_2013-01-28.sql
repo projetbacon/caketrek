@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.25)
 # Database: caketrek_default
-# Generation Time: 2013-01-28 11:55:21 +0000
+# Generation Time: 2013-01-28 11:57:33 +0000
 # ************************************************************
 
 
@@ -313,11 +313,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `zones`;
 
 CREATE TABLE `zones` (
-  `id` int(11) unsigned DEFAULT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `journey_id` int(11) DEFAULT NULL,
   `track_id` int(11) DEFAULT NULL,
-  `country` varchar(40) DEFAULT NULL
+  `country` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `zones` WRITE;
@@ -325,7 +326,9 @@ LOCK TABLES `zones` WRITE;
 
 INSERT INTO `zones` (`id`, `name`, `journey_id`, `track_id`, `country`)
 VALUES
-	(NULL,'Nord-Ouest',NULL,NULL,'France');
+	(1,'Nord-Ouest',NULL,NULL,'France'),
+	(2,'Sud-oOuest',NULL,NULL,'France'),
+	(3,'Nors-Est',NULL,NULL,'France');
 
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 UNLOCK TABLES;
