@@ -5,7 +5,8 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('bio');
-		echo $this->Form->input('media_id');
+		// echo $this->Form->input('media_id'); //de base par Gaspard
+		echo $this->Uploader->iframe('Tourist',$this->request->data['Tourist']['id']); // moi : selection de l'image
 		echo $this->Form->input('user_id');
 	?>
 	</fieldset>
