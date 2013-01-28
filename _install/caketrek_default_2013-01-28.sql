@@ -1,17 +1,20 @@
-# Sequel Pro dump
-# Version 2210
-# http://code.google.com/p/sequel-pro
-#
-# Host: 127.0.0.1 (MySQL 5.1.44-log)
-# Database: caketrek_default
-# Generation Time: 2013-01-28 08:14:07 +0000
 # ************************************************************
+# Sequel Pro SQL dump
+# Version 3408
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Host: localhost (MySQL 5.5.25)
+# Database: caketrek_default
+# Generation Time: 2013-01-28 11:07:16 +0000
+# ************************************************************
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
@@ -31,11 +34,12 @@ CREATE TABLE `badges` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges` WRITE;
 /*!40000 ALTER TABLE `badges` DISABLE KEYS */;
-INSERT INTO `badges` (`id`,`name`,`label`,`description`,`created`,`modified`)
+
+INSERT INTO `badges` (`id`, `name`, `label`, `description`, `created`, `modified`)
 VALUES
 	(1,'rookie','Rookie','Premiers pas',NULL,NULL),
 	(2,'first_blood','First Blood','Première Journey qui a été annulée',NULL,NULL),
@@ -58,11 +62,12 @@ CREATE TABLE `badges_objects` (
   `object` char(30) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges_objects` WRITE;
 /*!40000 ALTER TABLE `badges_objects` DISABLE KEYS */;
-INSERT INTO `badges_objects` (`id`,`badge_id`,`object_id`,`object`,`created`)
+
+INSERT INTO `badges_objects` (`id`, `badge_id`, `object_id`, `object`, `created`)
 VALUES
 	(19,2,2,'Tourist','2013-01-27 18:57:55'),
 	(18,4,1,'Tourist','2013-01-27 18:57:50'),
@@ -82,11 +87,12 @@ CREATE TABLE `badges_users` (
   `badge_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges_users` WRITE;
 /*!40000 ALTER TABLE `badges_users` DISABLE KEYS */;
-INSERT INTO `badges_users` (`id`,`badge_id`,`user_id`)
+
+INSERT INTO `badges_users` (`id`, `badge_id`, `user_id`)
 VALUES
 	(1,1,1),
 	(2,3,1),
@@ -112,11 +118,12 @@ CREATE TABLE `guides` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `guides` WRITE;
 /*!40000 ALTER TABLE `guides` DISABLE KEYS */;
-INSERT INTO `guides` (`id`,`slogan`,`description`,`tourist_id`,`validated`,`created`,`modified`)
+
+INSERT INTO `guides` (`id`, `slogan`, `description`, `tourist_id`, `validated`, `created`, `modified`)
 VALUES
 	(1,'il aime la montagne','',2,1,'2013-01-27 16:31:08','2013-01-27 16:31:26');
 
@@ -161,11 +168,12 @@ CREATE TABLE `medias` (
   PRIMARY KEY (`id`),
   KEY `ref` (`ref`),
   KEY `ref_id` (`ref_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `medias` WRITE;
 /*!40000 ALTER TABLE `medias` DISABLE KEYS */;
-INSERT INTO `medias` (`id`,`ref`,`ref_id`,`file`,`position`)
+
+INSERT INTO `medias` (`id`, `ref`, `ref_id`, `file`, `position`)
 VALUES
 	(1,'Tourist',1,'/uploads/2013/01/llv01.jpg',0),
 	(2,'Tourist',2,'/uploads/2013/01/llv02.JPG',0),
@@ -192,11 +200,12 @@ CREATE TABLE `tourists` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tourists` WRITE;
 /*!40000 ALTER TABLE `tourists` DISABLE KEYS */;
-INSERT INTO `tourists` (`id`,`first_name`,`last_name`,`bio`,`media_id`,`user_id`,`created`,`modified`)
+
+INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`)
 VALUES
 	(1,'Gaspard','Beernaert','Il aime les grandes plaines de neige, il veut un yak',5,1,NULL,'2013-01-27 18:57:50'),
 	(2,'Jo','Bo','Depuis tout petit, il aimait la glace à la chantilly',2,2,NULL,'2013-01-27 18:57:55');
@@ -244,11 +253,12 @@ CREATE TABLE `users` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`,`username`,`password`,`email`,`created`,`updated`)
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `created`, `updated`)
 VALUES
 	(1,'gasp','pass','gaspard@gmail.com','2013-01-24 13:29:28','2013-01-25 10:59:58'),
 	(2,'john','pass','jo@lamo.uk','2013-01-24 13:29:55','2013-01-24 16:30:15'),
@@ -285,10 +295,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `zones`;
 
 CREATE TABLE `zones` (
-  `id` int(11) DEFAULT NULL
+  `id` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `journey_id` int(11) DEFAULT NULL,
+  `track_id` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-
 
 
 
@@ -296,7 +307,6 @@ CREATE TABLE `zones` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
