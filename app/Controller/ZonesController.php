@@ -47,6 +47,9 @@ class ZonesController extends AppController {
 				$this->Session->setFlash(__('The zone could not be saved. Please, try again.'));
 			}
 		}
+		$journeys = $this->Zone->Journey->find('list');
+		$tracks = $this->Zone->Track->find('list');
+		$this->set(compact('journeys', 'tracks'));
 	}
 
 /**
@@ -71,6 +74,9 @@ class ZonesController extends AppController {
 		} else {
 			$this->request->data = $this->Zone->read(null, $id);
 		}
+		$journeys = $this->Zone->Journey->find('list');
+		$tracks = $this->Zone->Track->find('list');
+		$this->set(compact('journeys', 'tracks'));
 	}
 
 /**
@@ -137,6 +143,9 @@ class ZonesController extends AppController {
 				$this->Session->setFlash(__('The zone could not be saved. Please, try again.'));
 			}
 		}
+		$journeys = $this->Zone->Journey->find('list');
+		$tracks = $this->Zone->Track->find('list');
+		$this->set(compact('journeys', 'tracks'));
 	}
 
 /**
@@ -161,6 +170,9 @@ class ZonesController extends AppController {
 		} else {
 			$this->request->data = $this->Zone->read(null, $id);
 		}
+		$journeys = $this->Zone->Journey->find('list');
+		$tracks = $this->Zone->Track->find('list');
+		$this->set(compact('journeys', 'tracks'));
 	}
 
 /**

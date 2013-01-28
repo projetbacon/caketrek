@@ -21,6 +21,11 @@
 			<?php echo $this->Html->link($zone['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Country'); ?></dt>
+		<dd>
+			<?php echo h($zone['Zone']['country']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

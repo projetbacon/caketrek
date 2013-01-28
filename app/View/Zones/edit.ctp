@@ -7,6 +7,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('journey_id');
 		echo $this->Form->input('track_id');
+		echo $this->Form->input('country');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

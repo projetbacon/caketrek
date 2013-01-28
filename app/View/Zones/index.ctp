@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('journey_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('track_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('country'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -19,6 +20,7 @@
 		<td>
 			<?php echo $this->Html->link($zone['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
 		</td>
+		<td><?php echo h($zone['Zone']['country']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $zone['Zone']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $zone['Zone']['id'])); ?>
