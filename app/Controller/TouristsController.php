@@ -7,6 +7,23 @@ App::uses('AppController', 'Controller');
  */
 class TouristsController extends AppController {
 
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function find() {
+		
+		$keyword=$this->params->query['keyword'];
+		debug($keyword);
+		
+		
+		$tourists = $this->Tourist->find('all');
+		$this->set('tourists', $tourists);
+	}
+
+
 /**
  * index method
  *
