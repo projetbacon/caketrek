@@ -3,6 +3,23 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
+			<h2 class="connect"><?php 
+						
+			      		if($me['id'] != 0){	
+			      			echo $this->Html->link('Logout', array(
+			      			   'controller'=>'users','action' => 'logout'
+			      			));
+			      		}
+			      		else{
+			              echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login'));
+
+			      		}
+						?>
+			</h2>
+
+			<h2 class="userid">
+				<?php echo 'Welcome <span class="name" style="text-transform : capitalize">'.$me['username'].'</span>' ?>
+			</h2>			
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
