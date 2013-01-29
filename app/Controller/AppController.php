@@ -38,6 +38,9 @@ class AppController extends Controller {
         $this->Auth->allow('index', 'view');
         $this->Auth->allowedActions = array('display');
 
+        if($this->request->admin){
+          $this->layout = 'admin';
+        }
         
         if($this->Auth->loggedIn()){
               //$this->set('connected', 'je suis connecte');
