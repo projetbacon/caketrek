@@ -1,6 +1,11 @@
-<form>
-      <input name="keyword">
-      <input type="submit">
-</form>
+<?php
+echo $this->Form->create('tourist', array(
+      'type'=>'get', 'url' => array_merge(array('action' => 'find'), $this->params['pass'])
+));
+echo $this->Form->input('keyword', array('label' =>__('Search a tourist'), 'div' => false, 'empty' => true));
+echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->end();
 
-<?php debug($tourists); ?>
+debug($tourists_list); 
+
+?>
