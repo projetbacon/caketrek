@@ -1,5 +1,6 @@
 <form>
-<input name="keyword">
+      <input name="keyword">
+      <input type="submit">
 </form>
 
 <?php debug($tourists); ?>
