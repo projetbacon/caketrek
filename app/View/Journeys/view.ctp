@@ -16,11 +16,7 @@
 			<?php echo $this->Html->link($journey['Guide']['id'], array('controller' => 'guides', 'action' => 'view', $journey['Guide']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Track'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($journey['Track']['id'], array('controller' => 'tracks', 'action' => 'view', $journey['Track']['id'])); ?>
-			&nbsp;
-		</dd>
+	
 		<dt><?php echo __('Zone'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($journey['Zone']['id'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['id'])); ?>
@@ -74,8 +70,6 @@
 		<li><?php echo $this->Html->link(__('New Tourist'), array('controller' => 'tourists', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Guides'), array('controller' => 'guides', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Guide'), array('controller' => 'guides', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tracks'), array('controller' => 'tracks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Track'), array('controller' => 'tracks', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
 	</ul>

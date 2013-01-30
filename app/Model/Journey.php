@@ -3,10 +3,10 @@ App::uses('AppModel', 'Model');
 /**
  * Journey Model
  *
+ * @property Zone $Zone
  * @property Tourist $Tourist
  * @property Guide $Guide
- * @property Track $Track
- * @property Zone $Zone
+ * @property Tourist $Tourist
  */
 class Journey extends AppModel {
 
@@ -19,6 +19,21 @@ class Journey extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Zone' => array(
+			'className' => 'Zone',
+			'foreignKey' => 'journey_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * belongsTo associations
@@ -39,20 +54,33 @@ class Journey extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Track' => array(
-			'className' => 'Track',
-			'foreignKey' => 'track_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Zone' => array(
-			'className' => 'Zone',
-			'foreignKey' => 'zone_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
+
+
+
+
+/**
+ * hasAndBelongsToMany associations
+ *
+ * @var array
+ */
+	public $hasAndBelongsToMany = array(
+		'Tourist' => array(
+			'className' => 'Tourist',
+			'joinTable' => 'journeys_tourists',
+			'foreignKey' => 'journey_id',
+			'associationForeignKey' => 'tourist_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		)
+	);
+
 }

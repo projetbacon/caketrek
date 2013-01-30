@@ -47,6 +47,8 @@ class TracksController extends AppController {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}
 		}
+		$journeys = $this->Track->Journey->find('list');
+		$this->set(compact('journeys'));
 	}
 
 /**
@@ -71,6 +73,8 @@ class TracksController extends AppController {
 		} else {
 			$this->request->data = $this->Track->read(null, $id);
 		}
+		$journeys = $this->Track->Journey->find('list');
+		$this->set(compact('journeys'));
 	}
 
 /**
@@ -137,6 +141,8 @@ class TracksController extends AppController {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}
 		}
+		$journeys = $this->Track->Journey->find('list');
+		$this->set(compact('journeys'));
 	}
 
 /**
@@ -161,6 +167,8 @@ class TracksController extends AppController {
 		} else {
 			$this->request->data = $this->Track->read(null, $id);
 		}
+		$journeys = $this->Track->Journey->find('list');
+		$this->set(compact('journeys'));
 	}
 
 /**

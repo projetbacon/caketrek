@@ -49,9 +49,9 @@ class JourneysController extends AppController {
 		}
 		$tourists = $this->Journey->Tourist->find('list');
 		$guides = $this->Journey->Guide->find('list');
-		$tracks = $this->Journey->Track->find('list');
 		$zones = $this->Journey->Zone->find('list');
-		$this->set(compact('tourists', 'guides', 'tracks', 'zones'));
+		$tourists = $this->Journey->Tourist->find('list');
+		$this->set(compact('tourists', 'guides', 'zones', 'tourists'));
 	}
 
 /**
@@ -78,9 +78,9 @@ class JourneysController extends AppController {
 		}
 		$tourists = $this->Journey->Tourist->find('list');
 		$guides = $this->Journey->Guide->find('list');
-		$tracks = $this->Journey->Track->find('list');
 		$zones = $this->Journey->Zone->find('list');
-		$this->set(compact('tourists', 'guides', 'tracks', 'zones'));
+		$tourists = $this->Journey->Tourist->find('list');
+		$this->set(compact('tourists', 'guides', 'zones', 'tourists'));
 	}
 
 /**
@@ -149,9 +149,9 @@ class JourneysController extends AppController {
 		}
 		$tourists = $this->Journey->Tourist->find('list');
 		$guides = $this->Journey->Guide->find('list');
-		$tracks = $this->Journey->Track->find('list');
 		$zones = $this->Journey->Zone->find('list');
-		$this->set(compact('tourists', 'guides', 'tracks', 'zones'));
+		$tourists = $this->Journey->Tourist->find('list');
+		$this->set(compact('tourists', 'guides', 'zones', 'tourists'));
 	}
 
 /**
@@ -178,9 +178,9 @@ class JourneysController extends AppController {
 		}
 		$tourists = $this->Journey->Tourist->find('list');
 		$guides = $this->Journey->Guide->find('list');
-		$tracks = $this->Journey->Track->find('list');
 		$zones = $this->Journey->Zone->find('list');
-		$this->set(compact('tourists', 'guides', 'tracks', 'zones'));
+		$tourists = $this->Journey->Tourist->find('list');
+		$this->set(compact('tourists', 'guides', 'zones', 'tourists'));
 	}
 
 /**

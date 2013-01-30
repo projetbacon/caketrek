@@ -16,7 +16,9 @@
 		<td><?php echo h($track['Track']['name']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['size']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['level']); ?>&nbsp;</td>
-		<td><?php echo h($track['Track']['journey_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $track['Track']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $track['Track']['id'])); ?>
@@ -46,5 +48,7 @@
 		<li><?php echo $this->Html->link(__('New Track'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

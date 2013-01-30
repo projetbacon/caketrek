@@ -19,6 +19,7 @@ class TracksControllerTest extends ControllerTestCase {
 		'app.user',
 		'app.badge',
 		'app.badges_user',
+		'app.journeys_tourist',
 		'app.guide',
 		'app.zone'
 	);

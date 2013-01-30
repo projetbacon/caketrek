@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: localhost (MySQL 5.5.25)
+# Host: localhost (MySQL 5.1.44)
 # Database: caketrek_default
-# Generation Time: 2013-01-28 11:57:33 +0000
+# Generation Time: 2013-01-30 08:16:48 +0000
 # ************************************************************
 
 
@@ -152,6 +152,16 @@ CREATE TABLE `journeys` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `journeys` WRITE;
+/*!40000 ALTER TABLE `journeys` DISABLE KEYS */;
+
+INSERT INTO `journeys` (`id`, `tourist_id`, `guide_id`, `track_id`, `zone_id`, `name`, `about`, `body`, `public`, `crew`, `created`, `modified`)
+VALUES
+	(1,1,1,NULL,1,'Petite balade en Normandie','Visite des monuments de Normandie, sur la route des touristes perdus depuis plusieurs années.','Très très très cool visite, dégustation de super cidre pas très très bon, mais qui viennent de la Normandie, donc des cidres normands.\r\n10 personnes maximum, sinon, y aura plus de cidre.',10,1,'2013-01-29 11:22:50','2013-01-29 11:23:42'),
+	(2,1,1,NULL,2,'Séjour dans le sud','Visite des montagnes des Pyrénées','Au programme, de la marche, des cailloux et encore des cailloux',10,2,'2013-01-29 11:31:42','2013-01-29 11:31:42');
+
+/*!40000 ALTER TABLE `journeys` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table journeys_tourists
@@ -249,13 +259,27 @@ CREATE TABLE `tourists_friends` (
 DROP TABLE IF EXISTS `tracks`;
 
 CREATE TABLE `tracks` (
-  `id` int(11) unsigned DEFAULT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `size` varchar(11) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
-  `journey_id` int(11) unsigned DEFAULT NULL
+  `journey_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `tracks` WRITE;
+/*!40000 ALTER TABLE `tracks` DISABLE KEYS */;
+
+INSERT INTO `tracks` (`id`, `name`, `size`, `level`, `journey_id`)
+VALUES
+	(1,'Dégustation cidre brut','10',1,NULL),
+	(2,'Comptage des petits cailloux sur la route','5',2,NULL),
+	(3,'Comptage des petits cailloux sur la route','10',2,1),
+	(4,'Route des fromages','5',1,1),
+	(5,'Parcours de la mort','200',5,2);
+
+/*!40000 ALTER TABLE `tracks` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table users
@@ -327,7 +351,7 @@ LOCK TABLES `zones` WRITE;
 INSERT INTO `zones` (`id`, `name`, `journey_id`, `track_id`, `country`)
 VALUES
 	(1,'Nord-Ouest',NULL,NULL,'France'),
-	(2,'Sud-oOuest',NULL,NULL,'France'),
+	(2,'Sud-Ouest',NULL,NULL,'France'),
 	(3,'Nors-Est',NULL,NULL,'France');
 
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;

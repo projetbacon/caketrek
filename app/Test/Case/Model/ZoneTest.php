@@ -19,6 +19,7 @@ class ZoneTest extends CakeTestCase {
 		'app.user',
 		'app.badge',
 		'app.badges_user',
+		'app.journeys_tourist',
 		'app.guide',
 		'app.track'
 	);

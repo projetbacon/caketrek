@@ -4,7 +4,6 @@ App::uses('AppModel', 'Model');
  * Zone Model
  *
  * @property Journey $Journey
- * @property Track $Track
  * @property Journey $Journey
  */
 class Zone extends AppModel {
@@ -28,13 +27,6 @@ class Zone extends AppModel {
 		'Journey' => array(
 			'className' => 'Journey',
 			'foreignKey' => 'journey_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Track' => array(
-			'className' => 'Track',
-			'foreignKey' => 'track_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

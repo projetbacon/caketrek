@@ -21,9 +21,9 @@
 			<?php echo h($track['Track']['level']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Journey Id'); ?></dt>
+		<dt><?php echo __('Journey'); ?></dt>
 		<dd>
-			<?php echo h($track['Track']['journey_id']); ?>
+			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -37,9 +37,43 @@
 		<li><?php echo $this->Html->link(__('New Track'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
+	<div class="related">
+		<h3><?php echo __('Related Zones'); ?></h3>
+	<?php if (!empty($track['Zone'])): ?>
+		<dl>
+			<dt><?php echo __('Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['name']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Journey Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['journey_id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Track Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['track_id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Country'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['country']; ?>
+&nbsp;</dd>
+		</dl>
+	<?php endif; ?>
+		<div class="actions">
+			<ul>
+				<li><?php echo $this->Html->link(__('Edit Zone'), array('controller' => 'zones', 'action' => 'edit', $track['Zone']['id'])); ?></li>
+			</ul>
+		</div>
+	</div>
+	<div class="related">
 	<h3><?php echo __('Related Journeys'); ?></h3>
 	<?php if (!empty($track['Journey'])): ?>
 	<table cellpadding = "0" cellspacing = "0">

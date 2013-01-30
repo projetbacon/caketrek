@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Track Model
  *
+ * @property Zone $Zone
  * @property Journey $Journey
  * @property Journey $Journey
  */
@@ -17,6 +18,21 @@ class Track extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Zone' => array(
+			'className' => 'Zone',
+			'foreignKey' => 'track_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * belongsTo associations
