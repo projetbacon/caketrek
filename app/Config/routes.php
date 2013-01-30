@@ -32,6 +32,37 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
+*     Rewrite for search tourists
+*/
+     // Router::connect('/test', array('controller'=>'tourists', 'action'=>'find'));
+     
+     Router::connectNamed(array('keyword'));
+     Router::connect(
+          '/tourists/:action/keyword:*', array('controller' => 'tourists')
+      );
+     
+     
+     
+     /*Router::connect(
+          '/tourists/find/keyword:keyword*',
+          array('controller' => 'tourists', 'action' => 'find?keyword='),
+          array(
+              'pass' => array('keyword'),
+              'keyword'=>'[a-zA-Z0-9\-]+'
+          )
+      );
+          Router::connect(
+              '/tourists/find/:keyword',
+              array(
+                'controller' => 'tourists',
+                'action' => 'find?keyword'
+              ),
+              array(
+                'keyword' => '[a-zA-Z0-9_-]+'
+              )
+            );*/
+
+/**
  * Load all plugin routes.  See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */

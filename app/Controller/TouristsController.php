@@ -7,6 +7,7 @@ App::uses('AppController', 'Controller');
  */
 class TouristsController extends AppController {
 
+      	public $theme = "Bootstrap";
 
 /**
  * index method
@@ -202,27 +203,31 @@ class TouristsController extends AppController {
  *
  * @return void
  */
-	public function find() {
-		//if(isset($_GET['keyword'])){
-      		$keyword=$this->params->query['keyword'];
-      		debug($keyword);
-		//}
-		//On va chercher les touristes
-		$tourists = $this->Tourist->find('all',  array(
-      		'conditions' => array(
-      		    "OR"=>array(
-                  		'Tourist.first_name LIKE'=>'%'.$keyword.'%',
-                  		'Tourist.last_name LIKE'=>'%'.$keyword.'%',
-                  		//'User.username LIKE'=>'%'.$keyword.'%'
-                  		)//OR
-            		),//conditions
-            		'recursive' => 1,
-            		'fields' => array('first_name','last_name'),
-            		'contain' => array('User' => array(
-            		          'fields' => array('username')
-            		))//contain
-            	));
-		//on envoit à la vue (view)
-		$this->set('tourists', $tourists);
+	public function find($keyword = null) {
+		if($this->params->query){
+      		    debug($this->params->query['keyword']);
+      		    //echo $this->Tourist->find;
+            		$keyword=$this->params->query['keyword'];
+      		//On va chercher les touristes
+      		$tourists = $this->Tourist->find('all',  array(
+            		'conditions' => array(
+            		    "OR"=>array(
+                        		'Tourist.first_name LIKE'=>'%'.$keyword.'%',
+                        		'Tourist.last_name LIKE'=>'%'.$keyword.'%',
+                        		//'User.username LIKE'=>'%'.$keyword.'%'
+                        		)//OR
+                  		),//conditions
+                  		'recursive' => 1,
+                  		'fields' => array('first_name','last_name'),
+                  		'contain' => array('User' => array(
+                  		          'fields' => array('username')
+                  		))//contain
+                  	));
+      		//on envoit à la vue (view)
+      		$this->set('tourists_list', $tourists);
+		}
+		else{
+      		$this->set('tourists_list', '');
+		}
 	}
 }
