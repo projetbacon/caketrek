@@ -13,26 +13,11 @@ class TouristsController extends AppController {
  *
  * @return void
  */
-	public function find() {
-		
-		$keyword=$this->params->query['keyword'];
-		debug($keyword);
-		
-		
-		$tourists = $this->Tourist->find('all');
-		$this->set('tourists', $tourists);
-	}
-
-
-/**
- * index method
- *
- * @return void
- */
 	public function index() {
 		$this->Tourist->recursive = 0;
 		$this->set('tourists', $this->paginate());
 	}
+
 
 /**
  * view method
@@ -210,5 +195,34 @@ class TouristsController extends AppController {
 		}
 		$this->Session->setFlash(__('Tourist was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function find() {
+		//if(isset($_GET['keyword'])){
+      		$keyword=$this->params->query['keyword'];
+      		debug($keyword);
+		//}
+		//On va chercher les touristes
+		$tourists = $this->Tourist->find('all',  array(
+      		'conditions' => array(
+      		    "OR"=>array(
+                  		'Tourist.first_name LIKE'=>'%'.$keyword.'%',
+                  		'Tourist.last_name LIKE'=>'%'.$keyword.'%',
+                  		//'User.username LIKE'=>'%'.$keyword.'%'
+                  		)//OR
+            		),//conditions
+            		'recursive' => 1,
+            		'fields' => array('first_name','last_name'),
+            		'contain' => array('User' => array(
+            		          'fields' => array('username')
+            		))//contain
+            	));
+		//on envoit à la vue (view)
+		$this->set('tourists', $tourists);
 	}
 }
