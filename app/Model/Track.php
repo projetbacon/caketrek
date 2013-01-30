@@ -1,11 +1,13 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Zone Model
+ * Track Model
  *
+ * @property Zone $Zone
+ * @property Journey $Journey
  * @property Journey $Journey
  */
-class Zone extends AppModel {
+class Track extends AppModel {
 
 /**
  * Display field
@@ -14,6 +16,23 @@ class Zone extends AppModel {
  */
 	public $displayField = 'name';
 
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Zone' => array(
+			'className' => 'Zone',
+			'foreignKey' => 'track_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * belongsTo associations
@@ -38,7 +57,7 @@ class Zone extends AppModel {
 	public $hasMany = array(
 		'Journey' => array(
 			'className' => 'Journey',
-			'foreignKey' => 'zone_id',
+			'foreignKey' => 'track_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

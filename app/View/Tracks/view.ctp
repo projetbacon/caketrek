@@ -1,29 +1,29 @@
-<div class="zones view">
-<h2><?php  echo __('Zone'); ?></h2>
+<div class="tracks view">
+<h2><?php  echo __('Track'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($zone['Zone']['id']); ?>
+			<?php echo h($track['Track']['id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($zone['Zone']['name']); ?>
+			<?php echo h($track['Track']['name']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Size'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['size']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Level'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['level']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Journey'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($zone['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $zone['Journey']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Track'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($zone['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Country'); ?></dt>
-		<dd>
-			<?php echo h($zone['Zone']['country']); ?>
+			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -31,19 +31,51 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Zone'), array('action' => 'edit', $zone['Zone']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Zone'), array('action' => 'delete', $zone['Zone']['id']), null, __('Are you sure you want to delete # %s?', $zone['Zone']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Zones'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Zone'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Track'), array('action' => 'edit', $track['Track']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Track'), array('action' => 'delete', $track['Track']['id']), null, __('Are you sure you want to delete # %s?', $track['Track']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tracks'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Track'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tracks'), array('controller' => 'tracks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Track'), array('controller' => 'tracks', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
+	<div class="related">
+		<h3><?php echo __('Related Zones'); ?></h3>
+	<?php if (!empty($track['Zone'])): ?>
+		<dl>
+			<dt><?php echo __('Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['name']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Journey Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['journey_id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Track Id'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['track_id']; ?>
+&nbsp;</dd>
+		<dt><?php echo __('Country'); ?></dt>
+		<dd>
+	<?php echo $track['Zone']['country']; ?>
+&nbsp;</dd>
+		</dl>
+	<?php endif; ?>
+		<div class="actions">
+			<ul>
+				<li><?php echo $this->Html->link(__('Edit Zone'), array('controller' => 'zones', 'action' => 'edit', $track['Zone']['id'])); ?></li>
+			</ul>
+		</div>
+	</div>
+	<div class="related">
 	<h3><?php echo __('Related Journeys'); ?></h3>
-	<?php if (!empty($zone['Journey'])): ?>
+	<?php if (!empty($track['Journey'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -62,7 +94,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($zone['Journey'] as $journey): ?>
+		foreach ($track['Journey'] as $journey): ?>
 		<tr>
 			<td><?php echo $journey['id']; ?></td>
 			<td><?php echo $journey['tourist_id']; ?></td>
