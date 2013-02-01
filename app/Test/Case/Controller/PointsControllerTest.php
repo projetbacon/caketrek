@@ -1,11 +1,11 @@
 <?php
-App::uses('TracksController', 'Controller');
+App::uses('PointsController', 'Controller');
 
 /**
- * TracksController Test Case
+ * PointsController Test Case
  *
  */
-class TracksControllerTest extends ControllerTestCase {
+class PointsControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,6 +13,7 @@ class TracksControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
+		'app.point',
 		'app.track',
 		'app.zone',
 		'app.journey',
@@ -21,8 +22,7 @@ class TracksControllerTest extends ControllerTestCase {
 		'app.badge',
 		'app.badges_user',
 		'app.journeys_tourist',
-		'app.guide',
-		'app.point'
+		'app.guide'
 	);
 
 /**

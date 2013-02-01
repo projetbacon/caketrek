@@ -6,7 +6,10 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('size'); ?></th>
 			<th><?php echo $this->Paginator->sort('level'); ?></th>
-			<th><?php echo $this->Paginator->sort('journey_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('days'); ?></th>
+			<th><?php echo $this->Paginator->sort('tourist_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -16,9 +19,10 @@
 		<td><?php echo h($track['Track']['name']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['size']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['level']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
-		</td>
+		<td><?php echo h($track['Track']['days']); ?>&nbsp;</td>
+		<td><?php echo h($track['Track']['tourist_id']); ?>&nbsp;</td>
+		<td><?php echo h($track['Track']['created']); ?>&nbsp;</td>
+		<td><?php echo h($track['Track']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $track['Track']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $track['Track']['id'])); ?>
@@ -46,9 +50,11 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Track'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Points'), array('controller' => 'points', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

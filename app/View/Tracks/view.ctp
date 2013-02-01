@@ -21,9 +21,24 @@
 			<?php echo h($track['Track']['level']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Journey'); ?></dt>
+		<dt><?php echo __('Days'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
+			<?php echo h($track['Track']['days']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Tourist Id'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['tourist_id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($track['Track']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -35,10 +50,12 @@
 		<li><?php echo $this->Form->postLink(__('Delete Track'), array('action' => 'delete', $track['Track']['id']), null, __('Are you sure you want to delete # %s?', $track['Track']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tracks'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Track'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Zones'), array('controller' => 'zones', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Zone'), array('controller' => 'zones', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Journeys'), array('controller' => 'journeys', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Points'), array('controller' => 'points', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 	<div class="related">
@@ -121,6 +138,47 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Journey'), array('controller' => 'journeys', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Points'); ?></h3>
+	<?php if (!empty($track['Point'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Track Id'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Lat'); ?></th>
+		<th><?php echo __('Lng'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($track['Point'] as $point): ?>
+		<tr>
+			<td><?php echo $point['id']; ?></td>
+			<td><?php echo $point['track_id']; ?></td>
+			<td><?php echo $point['name']; ?></td>
+			<td><?php echo $point['lat']; ?></td>
+			<td><?php echo $point['lng']; ?></td>
+			<td><?php echo $point['created']; ?></td>
+			<td><?php echo $point['modified']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'points', 'action' => 'view', $point['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'points', 'action' => 'edit', $point['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'points', 'action' => 'delete', $point['id']), null, __('Are you sure you want to delete # %s?', $point['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

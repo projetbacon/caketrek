@@ -1,11 +1,11 @@
 <?php
-App::uses('Track', 'Model');
+App::uses('Point', 'Model');
 
 /**
- * Track Test Case
+ * Point Test Case
  *
  */
-class TrackTest extends CakeTestCase {
+class PointTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,6 +13,7 @@ class TrackTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
+		'app.point',
 		'app.track',
 		'app.zone',
 		'app.journey',
@@ -21,8 +22,7 @@ class TrackTest extends CakeTestCase {
 		'app.badge',
 		'app.badges_user',
 		'app.journeys_tourist',
-		'app.guide',
-		'app.point'
+		'app.guide'
 	);
 
 /**
@@ -32,7 +32,7 @@ class TrackTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Track = ClassRegistry::init('Track');
+		$this->Point = ClassRegistry::init('Point');
 	}
 
 /**
@@ -41,7 +41,7 @@ class TrackTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Track);
+		unset($this->Point);
 
 		parent::tearDown();
 	}

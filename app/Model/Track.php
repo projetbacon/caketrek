@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Zone $Zone
  * @property Journey $Journey
- * @property Journey $Journey
+ * @property Point $Point
  */
 class Track extends AppModel {
 
@@ -35,21 +35,6 @@ class Track extends AppModel {
 	);
 
 /**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'Journey' => array(
-			'className' => 'Journey',
-			'foreignKey' => 'journey_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-
-/**
  * hasMany associations
  *
  * @var array
@@ -57,6 +42,19 @@ class Track extends AppModel {
 	public $hasMany = array(
 		'Journey' => array(
 			'className' => 'Journey',
+			'foreignKey' => 'track_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Point' => array(
+			'className' => 'Point',
 			'foreignKey' => 'track_id',
 			'dependent' => false,
 			'conditions' => '',

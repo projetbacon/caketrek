@@ -13,6 +13,8 @@ class TracksController extends AppController {
  * @return void
  */
 	public function index() {
+	
+		debug($this->Auth->user());
 		$this->Track->recursive = 0;
 		$this->set('tracks', $this->paginate());
 	}
@@ -38,6 +40,7 @@ class TracksController extends AppController {
  * @return void
  */
 	public function add() {
+		debug($this->request->data);
 		if ($this->request->is('post')) {
 			$this->Track->create();
 			if ($this->Track->save($this->request->data)) {
@@ -47,8 +50,6 @@ class TracksController extends AppController {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}
 		}
-		$journeys = $this->Track->Journey->find('list');
-		$this->set(compact('journeys'));
 	}
 
 /**
@@ -73,8 +74,6 @@ class TracksController extends AppController {
 		} else {
 			$this->request->data = $this->Track->read(null, $id);
 		}
-		$journeys = $this->Track->Journey->find('list');
-		$this->set(compact('journeys'));
 	}
 
 /**
@@ -141,8 +140,6 @@ class TracksController extends AppController {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}
 		}
-		$journeys = $this->Track->Journey->find('list');
-		$this->set(compact('journeys'));
 	}
 
 /**
@@ -167,8 +164,6 @@ class TracksController extends AppController {
 		} else {
 			$this->request->data = $this->Track->read(null, $id);
 		}
-		$journeys = $this->Track->Journey->find('list');
-		$this->set(compact('journeys'));
 	}
 
 /**
