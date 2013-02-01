@@ -1,0 +1,40 @@
+<?php
+App::uses('AppModel', 'Model');
+
+class JourneysRequestsTourists extends AppModel {
+
+/**
+ * Display field
+ *
+ * @var string
+ */
+
+/**
+ * hasAndBelongsToMany associations
+ *
+ * @var array
+ */
+  public $hasAndBelongsToMany = array(
+		'Tourist' => array(
+			'className' => 'Tourist',
+			'foreignKey' => 'tourist_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Journey' => array(
+			'className' => 'Journey',
+			'foreignKey' => 'journey_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Request' => array(
+			'className' => 'Request',
+			'foreignKey' => 'request_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+}
