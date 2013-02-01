@@ -17,7 +17,11 @@ class FindsController extends AppController {
       public function index() {
            if($this->params->query){
                         $keyword=$this->params->query['keyword'];
-                        
+                        //supprime les mots de deux caractères ou moins (à partir de deux caractères dans la recherche)
+                        if(strlen($keyword) > 2){
+                              $keyword = preg_replace('#(?<=\W)\w{1,3}(?=\W)#', '', $keyword);
+                        }
+
                         //search in tourists
                         $this->loadModel('Tourist');
                         $tourists = $this->Tourist->find('all',  array(
@@ -29,7 +33,7 @@ class FindsController extends AppController {
                                     )//OR
                               ),//conditions
                               'recursive' => 1,
-                              'fields' => array('id','first_name','last_name'),
+                              'fields' => array('id','first_name','last_name','is_guide'),
                               'contain' => array('User' => array(
                                     'fields' => array('id','username')
                               ))//contain
@@ -47,7 +51,10 @@ class FindsController extends AppController {
                                           'Journey.name LIKE'=>'%'.$keyword.'%',
                                           'Journey.about LIKE'=>'%'.$keyword.'%',
                                           'Journey.body LIKE'=>'%'.$keyword.'%',
-                                    )//OR
+                                    ),//OR
+                                    "AND"=>array(
+                                          'Journey.public ='=>'1',
+                                    )//AND
                               ),//conditions
                               'recursive' => 1,
                               'fields' => array('id','name')
@@ -60,9 +67,7 @@ class FindsController extends AppController {
                         $this->loadModel('Track');
                         $tracks = $this->Track->find('all',  array(
                               'conditions' => array(
-                                    "OR"=>array(
-                                          'Track.name LIKE'=>'%'.$keyword.'%'
-                                    )//OR
+                                    'Track.name LIKE'=>'%'.$keyword.'%'
                               ),//conditions
                               'recursive' => 1,
                               'fields' => array('id','name')
