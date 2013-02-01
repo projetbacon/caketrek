@@ -33,6 +33,8 @@ App::uses('Controller', 'Controller');
  */
 
 class AppController extends Controller {
+	
+	public $theme = "Bootstrap";
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
