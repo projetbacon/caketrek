@@ -7,6 +7,27 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+
+	
+
+	public function inbox() {
+		$connecteduserid = 1;
+		// je suis l4utilisqteur 1
+
+
+
+		$this->User->recursive = 0;
+/*
+		$data = $this->Message->find('all');
+		$this->set('messages', $data); */
+		
+
+		return $this->User->find('all',array('recursive'=>-1), array(
+        'fields' => array('Message.user_id')));
+		/* $d['message'] = current($this->Message->find('all'));
+		$this -> set($d); */
+	}
+
 /**
  * index method
  *
