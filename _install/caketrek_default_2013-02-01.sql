@@ -223,16 +223,18 @@ CREATE TABLE `tourists` (
   `user_id` int(11) unsigned DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
+  `is_guide` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
-LOCK TABLES `tourists` WRITE;
-/*!40000 ALTER TABLE `tourists` DISABLE KEYS */;
+--
+-- Contenu de la table `tourists`
+--
 
-INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`)
-VALUES
-	(1,'Gaspard','Beernaert','Il aime les grandes plaines de neige, il veut un yak',5,1,NULL,'2013-01-27 18:57:50'),
-	(2,'Jo','Bo','Depuis tout petit, il aimait la glace ',2,2,NULL,'2013-01-27 18:57:55');
+INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`, `is_guide`) VALUES
+(1, 'Gaspard', 'Beernaert', 'Il aime les grandes plaines de neige, il veut un yak', 5, 1, NULL, '2013-01-27 18:57:50', 0),
+(2, 'Jo', 'Bo', 'Depuis tout petit, il aimait la glace à la chantilly', 2, 2, NULL, '2013-01-27 18:57:55', 1),
+(3, 'Goal', 'Dubois', 'il adore découvrir d''autres cultures', 3, 3, NULL, NULL, 0);
 
 /*!40000 ALTER TABLE `tourists` ENABLE KEYS */;
 UNLOCK TABLES;
