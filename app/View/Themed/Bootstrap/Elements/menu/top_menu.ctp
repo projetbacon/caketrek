@@ -1,4 +1,4 @@
-<?php $current_page = strtolower($this->viewPath); ?>
+<?php $current_page = strtolower($this->viewPath);?>
 
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
@@ -42,10 +42,24 @@
 					<li <?php if($current_page=="badges"){echo'class="active"';} ?>>
 						<?php echo $this->Html->link('BadgesController', array('controller' => 'badges', 'action' => 'index')); ?>
 					</li>
-					<li <?php if($current_page=="tourust"){echo'class="active"';} ?>>
+					<li <?php if($current_page=="tourists"){echo'class="active"';} ?>>
 						<?php echo $this->Html->link('TouristsController', array('controller' => 'tourists', 'action' => 'index')); ?>
 					</li>
+					<li <?php if($current_page=="finds"){echo'class="active"';} ?>>
+						<?php echo $this->Html->link('FindsController', array('controller' => 'finds', 'action' => 'index')); ?>
+					</li>
 				</ul>
+				<?php
+				echo'<div class="input-append">';
+				echo $this->Form->create('find', array(
+                              'type'=>'get', 'url' => array_merge(array('action' => 'index'), $this->params['pass'])
+                        ));
+                        echo'<div class="input-append">';
+                        echo $this->Form->input('keyword', array('label' => false, 'placeholder' => __('Search'), 'div' => false, 'empty' => true, 'class'=>'search-query'));
+                        echo $this->Form->button(__('Go', true), array('div' => false, 'class'=>'btn'));
+                        echo'</div>';
+                        echo $this->Form->end();
+                        ?>
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Journey Model
  *
+<<<<<<< HEAD
  * @property Zone $Zone
  * @property Tourist $Tourist
  * @property Guide $Guide
@@ -82,5 +83,4 @@ class Journey extends AppModel {
 			'insertQuery' => ''
 		)
 	);
-
 }

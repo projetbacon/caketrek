@@ -3,6 +3,7 @@ App::uses('AppController', 'Controller');
 /**
  * Journeys Controller
  *
+<<<<<<< HEAD
  * @property Journey $Journey
  */
 class JourneysController extends AppController {
