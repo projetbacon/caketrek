@@ -11,7 +11,8 @@ App::uses('Debugger', 'Utility');
 ?>
 
 <div class="hero-unit">
-	<p>Welcome to this pre-packaged CakePHP install.</p>
+	<p>Welcome to this pre-packaged CakePHP install You must be logged in to access this application.</p>
+	<p><?php echo $this->Html->link('Create an account',array('controller'=>'users','action'=>'add'), array('class'=>'btn btn-primary btn-large'))?></p>
 </div>
 
 <div class="row">
@@ -35,7 +36,7 @@ App::uses('Debugger', 'Utility');
 class PagesController extends AppController {
 	public $theme = "Bootstrap";
 </pre>
-	<p>Use Bootstrap's conventions for naming HTML elements. If you are not a Twitter Bootstrap's expert you can examine <code>/app/View/Users/index.ctp</code> an <?php echo $this->Html->link('read the documentation',array('controllers'=>'pages','action'=>'scaffolding'))?></p>
+	<p>Use Bootstrap's conventions for naming HTML elements. If you are not a Twitter Bootstrap's expert you can examine <code>/app/View/Users/index.ctp</code> an <?php echo $this->Html->link('read the documentation',array('controller'=>'pages','action'=>'scaffolding'))?></p>
 
 
 

@@ -59,6 +59,7 @@ class TouristsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+//		$this->helpers[] = 'Media.Uploader';
 		$this->Tourist->id = $id;
 		if (!$this->Tourist->exists()) {
 			throw new NotFoundException(__('Invalid tourist'));

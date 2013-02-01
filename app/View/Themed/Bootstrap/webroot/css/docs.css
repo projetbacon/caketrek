@@ -16,6 +16,8 @@ body {
 }
 
 
+
+
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 .navbar-fixed-top .brand {
@@ -840,4 +842,16 @@ form.well {
     width: 1168px; /* 2px less to account for left/right borders being removed when in fixed mode */
   }
 
+}
+
+.container h2.userid, h2.connect, h2.connect a{
+  font-size : 18px !important;
+  float : right;
+  margin : 0 0 0 5px;
+  color : #000000;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(0, 0, 0, 0.125);
+}
+
+.container h2.connect a:hover{
+  color : #fff;
 }
