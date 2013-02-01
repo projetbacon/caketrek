@@ -35,14 +35,7 @@
 *     Rewrite for search tourists
 */
      // Router::connect('/test', array('controller'=>'tourists', 'action'=>'find'));
-     
-     Router::connectNamed(array('keyword'));
-     Router::connect(
-          '/tourists/:action/keyword:*', array('controller' => 'tourists')
-      );
-     
-     
-     
+    
      /*Router::connect(
           '/tourists/find/keyword:keyword*',
           array('controller' => 'tourists', 'action' => 'find?keyword='),
