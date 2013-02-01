@@ -82,5 +82,10 @@ class Journey extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+	
+	public function isOwnedByTourist($journeyId, $touristId) {
+		return $this->field('id', array('id' => $journeyId, 'tourist_id' => $touristId)) === $journeyId;
+	}
+	
 
 }

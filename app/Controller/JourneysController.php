@@ -39,7 +39,7 @@ class JourneysController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Journey->create();
+	        $this->request->data['Journey']['tourist_id'] = $this->Auth->user('id'); //Ligne ajoutée
 			if ($this->Journey->save($this->request->data)) {
 				$this->Session->setFlash(__('The journey has been saved'));
 				$this->redirect(array('action' => 'index'));
@@ -63,6 +63,7 @@ class JourneysController extends AppController {
  */
 	public function edit($id = null) {
 		$this->Journey->id = $id;
+		
 		if (!$this->Journey->exists()) {
 			throw new NotFoundException(__('Invalid journey'));
 		}
@@ -76,7 +77,7 @@ class JourneysController extends AppController {
 		} else {
 			$this->request->data = $this->Journey->read(null, $id);
 		}
-		$tourists = $this->Journey->Tourist->find('list');
+	//	$tourists = $this->Journey->Tourist->find('list');
 		$guides = $this->Journey->Guide->find('list');
 		$zones = $this->Journey->Zone->find('list');
 		$tourists = $this->Journey->Tourist->find('list');
@@ -205,5 +206,27 @@ class JourneysController extends AppController {
 		}
 		$this->Session->setFlash(__('Journey was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	public function isAuthorized($user) {
+	    // Tous les users inscrits peuvent ajouter les posts
+	    if ($this->action === 'add') {
+	        return true;
+	    }
+			
+	    // Le propriétaire du post peut l'éditer et le supprimer
+	    if (in_array($this->action, array('edit', 'delete'))) {
+			$journeyId = $this->request->params['pass'][0];      
+
+	       if ($this->Journey->isOwnedByTourist($journeyId, $user['Tourist']['id'])) {
+				return true;
+	        }else{
+				return false;
+		        
+			}
+			
+	    }
+
+	    return parent::isAuthorized($user);
 	}
 }

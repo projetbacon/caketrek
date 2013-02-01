@@ -5,7 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('tourist_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('guide_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('zone_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('zone'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('about'); ?></th>
 			<th><?php echo $this->Paginator->sort('body'); ?></th>
@@ -20,7 +20,7 @@
 	<tr>
 		<td><?php echo h($journey['Journey']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($journey['Tourist']['id'], array('controller' => 'tourists', 'action' => 'view', $journey['Tourist']['id'])); ?>
+			<?php echo $this->Html->link($journey['Tourist']['first_name'], array('controller' => 'tourists', 'action' => 'view', $journey['Tourist']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($journey['Guide']['id'], array('controller' => 'guides', 'action' => 'view', $journey['Guide']['id'])); ?>

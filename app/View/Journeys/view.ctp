@@ -1,14 +1,10 @@
 <div class="journeys view">
 <h2><?php  echo __('Journey'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+		
+		<dt><?php echo __('Creator'); ?></dt>
 		<dd>
-			<?php echo h($journey['Journey']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tourist'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($journey['Tourist']['id'], array('controller' => 'tourists', 'action' => 'view', $journey['Tourist']['id'])); ?>
+			<?php echo $this->Html->link($journey['Tourist']['first_name'], array('controller' => 'tourists', 'action' => 'view', $journey['Tourist']['first_name'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Guide'); ?></dt>
@@ -19,7 +15,7 @@
 	
 		<dt><?php echo __('Zone'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($journey['Zone']['id'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['id'])); ?>
+			<?php echo $this->Html->link($journey['Zone']['id'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['name'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
