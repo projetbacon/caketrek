@@ -1,23 +1,26 @@
-# Sequel Pro dump
-# Version 2210
-# http://code.google.com/p/sequel-pro
-#
-# Host: 127.0.0.1 (MySQL 5.1.44-log)
-# Database: caketrek_default
-# Generation Time: 2013-01-28 08:14:07 +0000
 # ************************************************************
+# Sequel Pro SQL dump
+# Version 4004
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Hôte: localhost (MySQL 5.5.9)
+# Base de données: caketrek_default
+# Temps de génération: 2013-02-01 11:23:51 +0000
+# ************************************************************
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table badges
+# Affichage de la table badges
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges`;
@@ -31,22 +34,23 @@ CREATE TABLE `badges` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges` WRITE;
 /*!40000 ALTER TABLE `badges` DISABLE KEYS */;
-INSERT INTO `badges` (`id`,`name`,`label`,`description`,`created`,`modified`)
+
+INSERT INTO `badges` (`id`, `name`, `label`, `description`, `created`, `modified`)
 VALUES
 	(1,'rookie','Rookie','Premiers pas',NULL,NULL),
-	(2,'first_blood','First Blood','Première Journey qui a été annulée',NULL,NULL),
-	(3,'natural_born_leader','Natural Born Leader','A organisé plus de 10 journeys',NULL,NULL),
-	(4,'walker','Walker','A participé à au moins 5 journeys',NULL,NULL);
+	(2,'first_blood','First Blood','Premi',NULL,NULL),
+	(3,'natural_born_leader','Natural Born Leader','A organis',NULL,NULL),
+	(4,'walker','Walker','A particip',NULL,NULL);
 
 /*!40000 ALTER TABLE `badges` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table badges_objects
+# Affichage de la table badges_objects
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges_objects`;
@@ -58,11 +62,12 @@ CREATE TABLE `badges_objects` (
   `object` char(30) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges_objects` WRITE;
 /*!40000 ALTER TABLE `badges_objects` DISABLE KEYS */;
-INSERT INTO `badges_objects` (`id`,`badge_id`,`object_id`,`object`,`created`)
+
+INSERT INTO `badges_objects` (`id`, `badge_id`, `object_id`, `object`, `created`)
 VALUES
 	(19,2,2,'Tourist','2013-01-27 18:57:55'),
 	(18,4,1,'Tourist','2013-01-27 18:57:50'),
@@ -72,7 +77,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table badges_users
+# Affichage de la table badges_users
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges_users`;
@@ -82,11 +87,12 @@ CREATE TABLE `badges_users` (
   `badge_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `badges_users` WRITE;
 /*!40000 ALTER TABLE `badges_users` DISABLE KEYS */;
-INSERT INTO `badges_users` (`id`,`badge_id`,`user_id`)
+
+INSERT INTO `badges_users` (`id`, `badge_id`, `user_id`)
 VALUES
 	(1,1,1),
 	(2,3,1),
@@ -98,7 +104,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table guides
+# Affichage de la table guides
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `guides`;
@@ -112,11 +118,12 @@ CREATE TABLE `guides` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `guides` WRITE;
 /*!40000 ALTER TABLE `guides` DISABLE KEYS */;
-INSERT INTO `guides` (`id`,`slogan`,`description`,`tourist_id`,`validated`,`created`,`modified`)
+
+INSERT INTO `guides` (`id`, `slogan`, `description`, `tourist_id`, `validated`, `created`, `modified`)
 VALUES
 	(1,'il aime la montagne','',2,1,'2013-01-27 16:31:08','2013-01-27 16:31:26');
 
@@ -124,7 +131,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table journeys
+# Affichage de la table journeys
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `journeys`;
@@ -145,9 +152,33 @@ CREATE TABLE `journeys` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `journeys` WRITE;
+/*!40000 ALTER TABLE `journeys` DISABLE KEYS */;
+
+INSERT INTO `journeys` (`id`, `tourist_id`, `guide_id`, `track_id`, `zone_id`, `name`, `about`, `body`, `public`, `crew`, `created`, `modified`)
+VALUES
+	(1,1,1,NULL,1,'Petite balade en Normandie','Visite des monuments de Normandie, sur la route des touristes perdus depuis plusieurs années.','Très très très cool visite, dégustation de super cidre pas très très bon, mais qui viennent de la Normandie, donc des cidres normands.\r\n10 personnes maximum, sinon, y aura plus de cidre.',10,1,'2013-01-29 11:22:50','2013-01-29 11:23:42'),
+	(2,1,1,NULL,2,'Séjour dans le sud','Visite des montagnes des Pyrénées','Au programme, de la marche, des cailloux et encore des cailloux',10,2,'2013-01-29 11:31:42','2013-01-29 11:31:42');
+
+/*!40000 ALTER TABLE `journeys` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-# Dump of table medias
+# Affichage de la table journeys_tourists
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `journeys_tourists`;
+
+CREATE TABLE `journeys_tourists` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tourist_id` int(11) unsigned DEFAULT NULL,
+  `journey_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Affichage de la table medias
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `medias`;
@@ -161,11 +192,12 @@ CREATE TABLE `medias` (
   PRIMARY KEY (`id`),
   KEY `ref` (`ref`),
   KEY `ref_id` (`ref_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `medias` WRITE;
 /*!40000 ALTER TABLE `medias` DISABLE KEYS */;
-INSERT INTO `medias` (`id`,`ref`,`ref_id`,`file`,`position`)
+
+INSERT INTO `medias` (`id`, `ref`, `ref_id`, `file`, `position`)
 VALUES
 	(1,'Tourist',1,'/uploads/2013/01/llv01.jpg',0),
 	(2,'Tourist',2,'/uploads/2013/01/llv02.JPG',0),
@@ -177,7 +209,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table tourists
+# Affichage de la table tourists
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tourists`;
@@ -192,46 +224,84 @@ CREATE TABLE `tourists` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `tourists` WRITE;
 /*!40000 ALTER TABLE `tourists` DISABLE KEYS */;
-INSERT INTO `tourists` (`id`,`first_name`,`last_name`,`bio`,`media_id`,`user_id`,`created`,`modified`)
+
+INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`)
 VALUES
 	(1,'Gaspard','Beernaert','Il aime les grandes plaines de neige, il veut un yak',5,1,NULL,'2013-01-27 18:57:50'),
-	(2,'Jo','Bo','Depuis tout petit, il aimait la glace à la chantilly',2,2,NULL,'2013-01-27 18:57:55');
+	(2,'Jo','Bo','Depuis tout petit, il aimait la glace ',2,2,NULL,'2013-01-27 18:57:55');
 
 /*!40000 ALTER TABLE `tourists` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table tourists_friends
+# Affichage de la table tourists_friends
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tourists_friends`;
 
 CREATE TABLE `tourists_friends` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `tourist_id` int(11) unsigned DEFAULT NULL,
-  `friend_id` int(11) DEFAULT NULL,
-  `status` char(11) DEFAULT NULL,
+  `tourist_id` int(11) DEFAULT NULL,
+  `tourist_receive_id` int(11) DEFAULT NULL,
+  `status` varchar(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+LOCK TABLES `tourists_friends` WRITE;
+/*!40000 ALTER TABLE `tourists_friends` DISABLE KEYS */;
+
+INSERT INTO `tourists_friends` (`id`, `tourist_id`, `tourist_receive_id`, `status`, `created`, `modified`)
+VALUES
+	(2,2,3,'waiting','0000-00-00 00:00:00',NULL),
+	(3,3,4,'friend','0000-00-00 00:00:00',NULL),
+	(4,3,2,'friend','0000-00-00 00:00:00',NULL),
+	(5,2,3,'waiting','0000-00-00 00:00:00',NULL),
+	(6,5,4,'friend',NULL,NULL),
+	(7,6,3,'waiting',NULL,NULL),
+	(8,6,1,'friend',NULL,NULL),
+	(9,4,6,'friend',NULL,NULL),
+	(10,5,6,'waiting',NULL,NULL);
+
+/*!40000 ALTER TABLE `tourists_friends` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-# Dump of table tracks
+# Affichage de la table tracks
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tracks`;
 
 CREATE TABLE `tracks` (
-  `id` int(11) DEFAULT NULL
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `size` varchar(11) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `journey_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `tracks` WRITE;
+/*!40000 ALTER TABLE `tracks` DISABLE KEYS */;
+
+INSERT INTO `tracks` (`id`, `name`, `size`, `level`, `journey_id`)
+VALUES
+	(1,'Dégustation cidre brut','10',1,NULL),
+	(2,'Comptage des petits cailloux sur la route','5',2,NULL),
+	(3,'Comptage des petits cailloux sur la route','10',2,1),
+	(4,'Route des fromages','5',1,1),
+	(5,'Parcours de la mort','200',5,2);
+
+/*!40000 ALTER TABLE `tracks` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-# Dump of table users
+# Affichage de la table users
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `users`;
@@ -244,11 +314,12 @@ CREATE TABLE `users` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`,`username`,`password`,`email`,`created`,`updated`)
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `created`, `updated`)
 VALUES
 	(1,'gasp','pass','gaspard@gmail.com','2013-01-24 13:29:28','2013-01-25 10:59:58'),
 	(2,'john','pass','jo@lamo.uk','2013-01-24 13:29:55','2013-01-24 16:30:15'),
@@ -279,24 +350,37 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table zones
+# Affichage de la table zones
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `zones`;
 
 CREATE TABLE `zones` (
-  `id` int(11) DEFAULT NULL
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `journey_id` int(11) DEFAULT NULL,
+  `track_id` int(11) DEFAULT NULL,
+  `country` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `zones` WRITE;
+/*!40000 ALTER TABLE `zones` DISABLE KEYS */;
 
+INSERT INTO `zones` (`id`, `name`, `journey_id`, `track_id`, `country`)
+VALUES
+	(1,'Nord-Ouest',NULL,NULL,'France'),
+	(2,'Sud-Ouest',NULL,NULL,'France'),
+	(3,'Nors-Est',NULL,NULL,'France');
 
+/*!40000 ALTER TABLE `zones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

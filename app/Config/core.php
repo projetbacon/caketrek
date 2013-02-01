@@ -83,6 +83,17 @@
  */
 	Configure::write('App.encoding', 'UTF-8');
 
+
+
+/**
+ * Configuration for administration panel
+ */
+	Configure::write('Routing.admin', 'admin');
+
+
+
+
+
 /**
  * To configure CakePHP *not* to use mod_rewrite and to
  * use CakePHP pretty URLs, remove these .htaccess
@@ -278,3 +289,4 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+

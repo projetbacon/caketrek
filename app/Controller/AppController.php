@@ -31,6 +31,42 @@ App::uses('Controller', 'Controller');
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
+
 class AppController extends Controller {
-	public $theme = "default";
+
+    public function beforeFilter() {
+        $this->Auth->allow('index', 'view');
+        $this->Auth->allowedActions = array('display');
+
+        if($this->request->admin){
+          $this->layout = 'admin';
+        }
+        
+        if($this->Auth->loggedIn()){
+              //$this->set('connected', 'je suis connecte');
+              $this->set('me', $this->Auth->user());
+        }
+        else{
+              $this->set('me', array('id'=>0,'username'=>'Invited'));
+        }
+    }
+    
+      public $components = array(
+          'Session',
+          'Auth' => array(
+              'loginRedirect' => array('action' => 'index'),
+              'logoutRedirect' => array('action' => 'index'),
+              'authorize' => array('Controller') // Added this line
+          )
+      );
+      
+      public function isAuthorized($user) {
+           // Admin can access every action
+          if (isset($user['level']) && $user['level'] === '1') {
+            return true;
+          }
+      
+          // Default deny
+          return true;
+      }
 }

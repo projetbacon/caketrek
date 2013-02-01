@@ -4,9 +4,10 @@
 		<legend><?php echo __('Edit Tourist'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('bio');
 		echo $this->Form->input('media_id');
 		echo $this->Form->input('user_id');
+		
+		echo $this->Form->input('bio');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

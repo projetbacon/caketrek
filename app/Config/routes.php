@@ -66,3 +66,18 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+
+
+
+/*
+   Routing for administration connection
+*/
+Router::connect(
+  '/admin',
+  array(
+    'controller' => 'users',
+    'action' => 'index',
+    'prefix' => 'admin'
+  )
+);
