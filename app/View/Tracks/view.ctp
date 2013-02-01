@@ -182,3 +182,64 @@
 		</ul>
 	</div>
 </div>
+
+
+
+<!--CARTE -->
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+	$(function(){
+
+		var latlng = new google.maps.LatLng(48.74475534315533,2.49462890625);
+
+		var map = new google.maps.Map(document.getElementById('gmap'), {
+			zoom : 7,
+			center : latlng,
+			mapTypeId: google.maps.MapTypeId.TERRAIN
+		});
+
+		/*si on veut afficher les marqueurs*/
+			/*
+			<?php foreach ($track['Point'] as $p): ?>
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(<?php echo $p['lat']; ?>,<?php echo $p['lng']; ?>),
+					map : map,
+					draggable : false,
+					animation : google.maps.Animation.DROP
+				});
+			<?php endforeach; ?>
+			*/
+
+	    var parcours = [
+	    	<?php foreach ($track['Point'] as $p): ?>
+	    		new google.maps.LatLng(<?php echo $p['lat']; ?>, <?php echo $p['lng']; ?>),
+	    	<?php endforeach; ?>
+		];
+
+		var traceParcours = new google.maps.Polyline({
+		    path: parcours,
+		    strokeColor: "#FF0000",
+		    strokeOpacity: 1.0,
+		    strokeWeight: 2
+		});
+
+		traceParcours.setMap(map);
+		
+	
+
+	});
+
+</script>
+
+
+<div id="gmap" style="width:90%; height:450px;"></div>
+
+
+
+
+<!-- FIN CARTE -->
