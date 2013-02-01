@@ -15,9 +15,15 @@
 	
 		<dt><?php echo __('Zone'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($journey['Zone']['id'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['name'])); ?>
+			<?php echo $this->Html->link($journey['Zone']['name'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Track'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($journey['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $journey['Track']['id'])); ?>
+			&nbsp;
+		</dd>
+		
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($journey['Journey']['name']); ?>

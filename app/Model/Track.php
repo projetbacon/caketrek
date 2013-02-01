@@ -20,7 +20,7 @@ class Track extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasOne associations
+ * belongsTo associations
  *
  * @var array
  */
@@ -28,21 +28,6 @@ class Track extends AppModel {
 		'Zone' => array(
 			'className' => 'Zone',
 			'foreignKey' => 'track_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'Journey' => array(
-			'className' => 'Journey',
-			'foreignKey' => 'journey_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

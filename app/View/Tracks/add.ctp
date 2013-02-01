@@ -3,6 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Add Track'); ?></legend>
 	<?php
+	
+		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('size');
 		echo $this->Form->input('level');

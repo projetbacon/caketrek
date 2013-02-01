@@ -28,7 +28,7 @@ class Journey extends AppModel {
 	public $hasOne = array(
 		'Zone' => array(
 			'className' => 'Zone',
-			'foreignKey' => 'journey_id',
+			'foreignKey' => '',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -54,10 +54,16 @@ class Journey extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+
+		'Track' => array(
+			'className' => 'Track',
+			'foreignKey' => 'track_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
-
-
 
 
 /**

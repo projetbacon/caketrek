@@ -3,12 +3,13 @@
 	<fieldset>
 		<legend><?php echo __('Add Journey'); ?></legend>
 	<?php
-		//echo $this->Form->input('tourist_id');
+		echo $this->Form->input('tourist_id');
 		echo $this->Form->input('guide_id');
 		echo $this->Form->input('zone_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('about');
 		echo $this->Form->input('body');
+		echo $this->Form->input('track_id');
 		echo $this->Form->input('public');
 		echo $this->Form->input('crew');
 		//echo $this->Form->input('Tourist');

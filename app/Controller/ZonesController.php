@@ -48,7 +48,6 @@ class ZonesController extends AppController {
 			}
 		}
 		$journeys = $this->Zone->Journey->find('list');
-		$tracks = $this->Zone->Track->find('list');
 		$this->set(compact('journeys', 'tracks'));
 	}
 

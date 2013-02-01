@@ -3,9 +3,10 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('tourist_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('creator'); ?></th>
 			<th><?php echo $this->Paginator->sort('guide_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('zone'); ?></th>
+			<th><?php echo $this->Paginator->sort('zone_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('track_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('about'); ?></th>
 			<th><?php echo $this->Paginator->sort('body'); ?></th>
@@ -25,10 +26,15 @@
 		<td>
 			<?php echo $this->Html->link($journey['Guide']['id'], array('controller' => 'guides', 'action' => 'view', $journey['Guide']['id'])); ?>
 		</td>
-
+		
 		<td>
-			<?php echo $this->Html->link($journey['Zone']['id'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['id'])); ?>
+			<?php echo $this->Html->link($journey['Zone']['name'], array('controller' => 'zones', 'action' => 'view', $journey['Zone']['id'])); ?>
 		</td>
+		
+		<td>
+			<?php echo $this->Html->link($journey['Track']['id'], array('controller' => 'tracks', 'action' => 'view', $journey['Track']['id'])); ?>
+		</td>
+		
 		<td><?php echo h($journey['Journey']['name']); ?>&nbsp;</td>
 		<td><?php echo h($journey['Journey']['about']); ?>&nbsp;</td>
 		<td><?php echo h($journey['Journey']['body']); ?>&nbsp;</td>

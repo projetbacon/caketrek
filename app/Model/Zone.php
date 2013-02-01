@@ -49,6 +49,8 @@ class Zone extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
+	
+	
 	);
 
 }

@@ -6,7 +6,6 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('size'); ?></th>
 			<th><?php echo $this->Paginator->sort('level'); ?></th>
-			<th><?php echo $this->Paginator->sort('journey_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -16,9 +15,7 @@
 		<td><?php echo h($track['Track']['name']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['size']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['level']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($track['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $track['Journey']['id'])); ?>
-		</td>
+		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $track['Track']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $track['Track']['id'])); ?>

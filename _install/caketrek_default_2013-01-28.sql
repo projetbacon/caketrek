@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.1.44)
 # Database: caketrek_default
-# Generation Time: 2013-01-30 08:16:48 +0000
+# Generation Time: 2013-02-01 11:59:16 +0000
 # ************************************************************
 
 
@@ -157,7 +157,7 @@ LOCK TABLES `journeys` WRITE;
 
 INSERT INTO `journeys` (`id`, `tourist_id`, `guide_id`, `track_id`, `zone_id`, `name`, `about`, `body`, `public`, `crew`, `created`, `modified`)
 VALUES
-	(1,1,1,NULL,1,'Petite balade en Normandie','Visite des monuments de Normandie, sur la route des touristes perdus depuis plusieurs années.','Très très très cool visite, dégustation de super cidre pas très très bon, mais qui viennent de la Normandie, donc des cidres normands.\r\n10 personnes maximum, sinon, y aura plus de cidre.',10,1,'2013-01-29 11:22:50','2013-01-29 11:23:42'),
+	(1,1,1,4,1,'Petite balade en Normandie','Visite des monuments de Normandie, sur la route des touristes perdus depuis plusieurs années.','Très très très cool visite, dégustation de super cidre pas très très bon, mais qui viennent de la Normandie, donc des cidres normands.\r\n10 personnes maximum, sinon, y aura plus de cidre.',10,1,'2013-01-29 11:22:50','2013-02-01 10:05:32'),
 	(2,1,1,NULL,2,'Séjour dans le sud','Visite des montagnes des Pyrénées','Au programme, de la marche, des cailloux et encore des cailloux',10,2,'2013-01-29 11:31:42','2013-01-29 11:31:42');
 
 /*!40000 ALTER TABLE `journeys` ENABLE KEYS */;
@@ -176,6 +176,18 @@ CREATE TABLE `journeys_tourists` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+LOCK TABLES `journeys_tourists` WRITE;
+/*!40000 ALTER TABLE `journeys_tourists` DISABLE KEYS */;
+
+INSERT INTO `journeys_tourists` (`id`, `tourist_id`, `journey_id`)
+VALUES
+	(1,1,1),
+	(2,2,1),
+	(4,3,1),
+	(5,4,1);
+
+/*!40000 ALTER TABLE `journeys_tourists` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table medias
@@ -232,7 +244,9 @@ LOCK TABLES `tourists` WRITE;
 INSERT INTO `tourists` (`id`, `first_name`, `last_name`, `bio`, `media_id`, `user_id`, `created`, `modified`)
 VALUES
 	(1,'Gaspard','Beernaert','Il aime les grandes plaines de neige, il veut un yak',5,1,NULL,'2013-01-27 18:57:50'),
-	(2,'Jo','Bo','Depuis tout petit, il aimait la glace ',2,2,NULL,'2013-01-27 18:57:55');
+	(2,'Jo','Bo','Depuis tout petit, il aimait la glace ',2,2,NULL,'2013-01-27 18:57:55'),
+	(3,'Cécile','Sablayrolles','Super cool',NULL,25,NULL,NULL),
+	(4,'Titouan','Bellocq',NULL,NULL,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `tourists` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -263,20 +277,21 @@ CREATE TABLE `tracks` (
   `name` varchar(100) DEFAULT NULL,
   `size` varchar(11) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
-  `journey_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `tracks` WRITE;
 /*!40000 ALTER TABLE `tracks` DISABLE KEYS */;
 
-INSERT INTO `tracks` (`id`, `name`, `size`, `level`, `journey_id`)
+INSERT INTO `tracks` (`id`, `name`, `size`, `level`)
 VALUES
-	(1,'Dégustation cidre brut','10',1,NULL),
-	(2,'Comptage des petits cailloux sur la route','5',2,NULL),
-	(3,'Comptage des petits cailloux sur la route','10',2,1),
-	(4,'Route des fromages','5',1,1),
-	(5,'Parcours de la mort','200',5,2);
+	(1,'Dégustation cidre brut','10',1),
+	(2,'Comptage des petits cailloux sur la route','5',2),
+	(3,'Comptage des petits cailloux sur la route','10',2),
+	(4,'Route des fromages','5',1),
+	(5,'Parcours de la mort','200',5),
+	(6,'Parcours de la mort','10',1),
+	(7,'Dégustation de vin rouge','1',1);
 
 /*!40000 ALTER TABLE `tracks` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -325,7 +340,9 @@ VALUES
 	(21,'jekyll','pass','jekyll@yahoo.com','2013-01-24 19:00:49',NULL),
 	(22,'hide','pass','hide@yahoo.com','2013-01-24 19:01:32',NULL),
 	(23,'sergey','pass','sergey@yahoo.com','2013-01-24 19:33:30','2013-01-24 19:33:30'),
-	(24,'maria','pass','maria@yahoo.com','2013-01-24 19:36:44','2013-01-24 19:36:44');
+	(24,'maria','pass','maria@yahoo.com','2013-01-24 19:36:44','2013-01-24 19:36:44'),
+	(25,'cecile','4d331648b390644bb2de5e360cb0e898ad040e80','xex@dssdhlkj.csd','2013-01-30 09:28:29','2013-01-30 09:28:29'),
+	(26,'pierre','20fc50071c37b3cf2d213abfe713694b45bb52c2','test@test.com','2013-02-01 10:13:32','2013-02-01 10:13:32');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -339,8 +356,7 @@ DROP TABLE IF EXISTS `zones`;
 CREATE TABLE `zones` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `journey_id` int(11) DEFAULT NULL,
-  `track_id` int(11) DEFAULT NULL,
+  `track_id` int(11) unsigned DEFAULT NULL,
   `country` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -348,11 +364,12 @@ CREATE TABLE `zones` (
 LOCK TABLES `zones` WRITE;
 /*!40000 ALTER TABLE `zones` DISABLE KEYS */;
 
-INSERT INTO `zones` (`id`, `name`, `journey_id`, `track_id`, `country`)
+INSERT INTO `zones` (`id`, `name`, `track_id`, `country`)
 VALUES
-	(1,'Nord-Ouest',NULL,NULL,'France'),
-	(2,'Sud-Ouest',NULL,NULL,'France'),
-	(3,'Nors-Est',NULL,NULL,'France');
+	(1,'Nord-Ouest',NULL,'France'),
+	(2,'Sud-Ouest',NULL,'France'),
+	(3,'Nors-Est',NULL,'France'),
+	(4,'Centre',NULL,'France');
 
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -18,7 +18,7 @@
 			<?php echo $this->Html->link($zone['Journey']['name'], array('controller' => 'journeys', 'action' => 'view', $zone['Journey']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($zone['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
+			<?php echo $this->Html->link($zone['Track']['id'], array('controller' => 'tracks', 'action' => 'view', $zone['Track']['id'])); ?>
 		</td>
 		<td><?php echo h($zone['Zone']['country']); ?>&nbsp;</td>
 		<td class="actions">
