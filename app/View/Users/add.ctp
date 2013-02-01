@@ -8,8 +8,7 @@
 				<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link(__('List Badges'), array('controller' => 'badges', 'action' => 'index')); ?> </li>
 				<li><?php echo $this->Html->link(__('New Badge'), array('controller' => 'badges', 'action' => 'add')); ?> </li>
- </li>
-
+ 				</li>
 			</ul>
 		</div>
 	</div>

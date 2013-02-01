@@ -1,6 +1,6 @@
 <div class="tourists index">
 	<div class="page-header">
-	  <h1><?php echo __('Tourists'); ?><small><?php echo $this->action; ?></small></h1>
+	  <h1><?php echo __('Tourists'); ?> <small><?php echo $this->action; ?></small></h1>
 	</div>
 	<div class="subhead">
 		<div class="subnav">
@@ -37,21 +37,24 @@
 					</td>
 				</tr>
 			<?php endforeach; ?>
-				</table>
-				<p>
-				<?php
-				echo $this->Paginator->counter(array(
-				'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-				));
-				?>	</p>
-			
-				<div class="paging">
-				<?php
-					echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-					echo $this->Paginator->numbers(array('separator' => ''));
-					echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-				?>
-				</div>
+			</table>
+				
+			<div class="pagination">
+				<ul>
+			<?php
+				echo $this->Paginator->prev('«', array('tag'=>'li'), null, array('tag'=>'li','class' => 'prev active'));
+				echo $this->Paginator->numbers(array('separator' => '','tag'=>'li'));
+				echo $this->Paginator->next('»', array('tag'=>'li'), null, array('tag'=>'li','class' => 'next active'));
+			?>
+				</ul>
 			</div>
+				
+			<p>
+			<?php
+			echo $this->Paginator->counter(array(
+			'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+			));
+			?></p>
 		</div>
 	</div>
+</div>
