@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 3408
+# Version 4004
 #
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: localhost (MySQL 5.1.44)
-# Database: caketrek_default
-# Generation Time: 2013-01-30 08:16:48 +0000
+# Hôte: localhost (MySQL 5.5.9)
+# Base de données: caketrek_default
+# Temps de génération: 2013-02-01 11:23:51 +0000
 # ************************************************************
 
 
@@ -20,7 +20,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table badges
+# Affichage de la table badges
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges`;
@@ -50,7 +50,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table badges_objects
+# Affichage de la table badges_objects
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges_objects`;
@@ -77,7 +77,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table badges_users
+# Affichage de la table badges_users
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `badges_users`;
@@ -104,7 +104,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table guides
+# Affichage de la table guides
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `guides`;
@@ -131,7 +131,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table journeys
+# Affichage de la table journeys
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `journeys`;
@@ -164,7 +164,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table journeys_tourists
+# Affichage de la table journeys_tourists
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `journeys_tourists`;
@@ -178,7 +178,7 @@ CREATE TABLE `journeys_tourists` (
 
 
 
-# Dump of table medias
+# Affichage de la table medias
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `medias`;
@@ -209,7 +209,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table tourists
+# Affichage de la table tourists
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tourists`;
@@ -238,22 +238,41 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table tourists_friends
+# Affichage de la table tourists_friends
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tourists_friends`;
 
 CREATE TABLE `tourists_friends` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `tourist_id` int(11) unsigned DEFAULT NULL,
-  `friend_id` int(11) DEFAULT NULL,
-  `status` char(11) DEFAULT NULL,
+  `tourist_id` int(11) DEFAULT NULL,
+  `tourist_receive_id` int(11) DEFAULT NULL,
+  `status` varchar(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+LOCK TABLES `tourists_friends` WRITE;
+/*!40000 ALTER TABLE `tourists_friends` DISABLE KEYS */;
+
+INSERT INTO `tourists_friends` (`id`, `tourist_id`, `tourist_receive_id`, `status`, `created`, `modified`)
+VALUES
+	(2,2,3,'waiting','0000-00-00 00:00:00',NULL),
+	(3,3,4,'friend','0000-00-00 00:00:00',NULL),
+	(4,3,2,'friend','0000-00-00 00:00:00',NULL),
+	(5,2,3,'waiting','0000-00-00 00:00:00',NULL),
+	(6,5,4,'friend',NULL,NULL),
+	(7,6,3,'waiting',NULL,NULL),
+	(8,6,1,'friend',NULL,NULL),
+	(9,4,6,'friend',NULL,NULL),
+	(10,5,6,'waiting',NULL,NULL);
+
+/*!40000 ALTER TABLE `tourists_friends` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-# Dump of table tracks
+# Affichage de la table tracks
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tracks`;
@@ -282,7 +301,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table users
+# Affichage de la table users
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `users`;
@@ -331,7 +350,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table zones
+# Affichage de la table zones
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `zones`;
