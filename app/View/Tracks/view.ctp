@@ -178,7 +178,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add/'.$track['Track']['id'].'')	); ?> </li>
 		</ul>
 	</div>
 </div>

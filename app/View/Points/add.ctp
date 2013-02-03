@@ -1,3 +1,5 @@
+
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
@@ -55,19 +57,15 @@
 
 </script>
 
-<?php
-	$track_id = 3;
-?>
-<h3>Adding to Track 3</h3>
+<h3>Adding to Track <?php echo $track['Track']['name'] ?></h3>
 
-<?php echo $this->Html->link(__('Back to my Track'), array('controller' => 'tracks', 'action' => 'view', $track_id)); ?>
+<?php echo $this->Html->link(__('Back to my Track'), array('controller' => 'tracks', 'action' => 'view', $track['Track']['id'])); ?>
 
 <div class="points form">
 <?php echo $this->Form->create('Point'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Point'); ?></legend>
 	<?php
-		echo $this->Form->input('track_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('lat');
 		echo $this->Form->input('lng');

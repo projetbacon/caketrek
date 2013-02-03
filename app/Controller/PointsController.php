@@ -37,13 +37,22 @@ class PointsController extends AppController {
  *
  * @return void
  */
-	public function add() {
-		$track_id = 2;
+	public function add($id_track=null) {
+		$this->loadModel('Track');
+		$this->request->data['Point']['track_id']=$id_track;
+		
+		$this->Track->id = $id_track;
+		if (!$this->Track->exists()) {
+			throw new NotFoundException(__('Invalid track'));
+		}
+		$this->set('track', $this->Track->read(null, $id_track));
+	
+		//check track id is not null
 		if ($this->request->is('post')) {
 			$this->Point->create();
 			if ($this->Point->save($this->request->data)) {
 				$this->Session->setFlash(__('The point has been saved'));
-				$this->redirect(array('action' => 'add', $track_id));
+				$this->redirect(array('action' => 'add', $id_track));
 			} else {
 				$this->Session->setFlash(__('The point could not be saved. Please, try again.'));
 			}
